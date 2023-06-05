@@ -6,6 +6,10 @@ Projekty długoterminowe
 
 - MyDashboardCloud - [Asp.Net, MongoDB] - Api dla moich urządzeń IoT
 
+---
+
+
+
 Projekty krótkoterminowe
 
 [2023] 
@@ -15,6 +19,10 @@ Projekty krótkoterminowe
 - ePaperFrame - [ESP32, Arduino] - Ramka na zdjęcia z wyświetlaczem ePaper
 
 - ePaperWhetherStation - [ESP32, Arduino] - Stacja pogodowa z wyświetlaczem ePaper
+
+---
+
+
 
 Instrukcje howto:
 
