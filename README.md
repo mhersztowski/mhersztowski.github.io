@@ -1,6 +1,8 @@
 # Strona domowa Marcina Hersztowskiego
 
-Projekty długoterminowe
+---
+
+## Projekty długoterminowe
 
 - MyDashboard - [c++, Qt, Android, Windows] - program do zarządzania informacją osobistą
 
@@ -8,9 +10,7 @@ Projekty długoterminowe
 
 ---
 
-
-
-Projekty krótkoterminowe
+## Projekty krótkoterminowe
 
 [2023] 
 
@@ -18,12 +18,10 @@ Projekty krótkoterminowe
 
 - ePaperFrame - [ESP32, Arduino] - Ramka na zdjęcia z wyświetlaczem ePaper
 
-- ePaperWhetherStation - [ESP32, Arduino] - Stacja pogodowa z wyświetlaczem ePaper
+- ePaperWheatherStation - [ESP32, Arduino] - Stacja pogodowa z wyświetlaczem ePaper
 
 ---
 
-
-
-Instrukcje howto:
+## Instrukcje howto:
 
 [Kompilacja FFMpeg na Windows](howto/ffmpeg_windows_compiling.md)
