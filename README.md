@@ -29,9 +29,3 @@
 [FFMpeg compilation on Windows](howto/ffmpeg_windows_compiling.md)
 
 
-
-```dataview
-LIST FROM #project 
-
-```
-
