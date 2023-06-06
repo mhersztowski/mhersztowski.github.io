@@ -1,27 +1,37 @@
-# Strona domowa Marcina Hersztowskiego
+# Marcin Hersztowski Homepage
 
 ---
 
-## Projekty długoterminowe
+## Projects
 
-- MyDashboard - [c++, Qt, Android, Windows] - program do zarządzania informacją osobistą
+- MyDashboard - [c++, Qt, Android, Windows] - program to manage personal information
 
-- MyDashboardCloud - [Asp.Net, MongoDB] - Api dla moich urządzeń IoT
+- MyDashboardCloudServer - [ASP.Net, MongoDB] - server for managing IoT devices
+
+- MyDashboardCloudClient [Qt, Android, Windows] - client application for managing IoT devices
 
 ---
 
-## Projekty krótkoterminowe
+## MiniProjects
 
 [2023] 
 
-- InetRadioAlarm - [Qt, Android, PC, FFMpeg] - Budzik z radiem internetowym
+- [ClockRadio ](https://github.com/mhersztowski/ClockRadio)- [Qt, Android, Windows, FFMpeg] - Clock, Alarm, Internet Radio application
 
-- ePaperFrame - [ESP32, Arduino] - Ramka na zdjęcia z wyświetlaczem ePaper
+- ePaperFrame - [ESP32, Arduino] - Foto frame with ePaper display
 
-- ePaperWheatherStation - [ESP32, Arduino] - Stacja pogodowa z wyświetlaczem ePaper
+- ePaperWheatherStation - [ESP32, Arduino] - weather station with ePaperDisplay
 
 ---
 
-## Instrukcje howto:
+## Tutorials:
 
-[Kompilacja FFMpeg na Windows](howto/ffmpeg_windows_compiling.md)
+[FFMpeg compilation on Windows](howto/ffmpeg_windows_compiling.md)
+
+
+
+```dataview
+LIST FROM #project 
+
+```
+
