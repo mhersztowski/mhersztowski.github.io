@@ -20,12 +20,10 @@
 
 - ePaperFrame - [ESP32, Arduino] - Foto frame with ePaper display
 
-- ePaperWheatherStation - [ESP32, Arduino] - weather station with ePaperDisplay
+- ePaperWheatherStation - [ESP32, Arduino] - weather station with ePaper display
 
 ---
 
 ## Tutorials:
 
 [FFMpeg compilation on Windows](howto/ffmpeg_windows_compiling.md)
-
-
