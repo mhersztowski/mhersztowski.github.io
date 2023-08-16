@@ -58,6 +58,16 @@ function getLocalIP(callback) {
 getLocalIP((ip) => showNotification("Twój lokalny adres IP:", ip));
 */
 
+function substringBeforeLastDot(str) {
+    const lastDotIndex = str.lastIndexOf(".");
+
+    if (lastDotIndex === -1) {
+        return str; // Zwraca cały string, jeśli nie ma kropki w łańcuchu
+    }
+
+    return str.substring(0, lastDotIndex);
+}
+
 class LocalDeviceList {
     constructor(ip_adress) {
         this.ip_adress = ip_adress;
@@ -65,36 +75,11 @@ class LocalDeviceList {
         this.lastSearchIp = 0;
     }
 
-    init() {
-        start_search();
-        for (let i = 0; i < 5; i++) {
-            search_start();
-        }
-    }
-
-    shoutdown() {}
-
-    start_search() {
-        this.searchIsEnd = false;
-        alert("tototot");
-        showNotification("Starting search local network");
-    }
-
     on_end_search() {
         if (!this.searchIsEnd) {
             showNotification("Finishing search local network");
         }
         this.searchIsEnd = true;
-    }
-
-    substringBeforeLastDot(str) {
-        const lastDotIndex = str.lastIndexOf(".");
-
-        if (lastDotIndex === -1) {
-            return str; // Zwraca cały string, jeśli nie ma kropki w łańcuchu
-        }
-
-        return str.substring(0, lastDotIndex);
     }
 
     search_start() {
@@ -129,6 +114,21 @@ class LocalDeviceList {
 
         xhr.send();
     }
+
+    start_search() {
+        this.searchIsEnd = false;
+        showNotification("Starting search local network");
+
+        for (let i = 0; i < 5; i++) {
+            search_start();
+        }
+    }
+
+    init() {
+        start_search();
+    }
+
+    shoutdown() {}
 }
 
 let localDeviceList = new LocalDeviceList("192.168.1.42");
