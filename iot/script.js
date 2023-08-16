@@ -3,6 +3,12 @@ function rootFunction() {
     alert("Funkcja na stronie root została wywołana!");
 }
 
+function callRootFunction() {
+    if (window.rootFunction) {
+        window.rootFunction();
+    }
+}
+
 function loadPage(pageName) {
     const contentDiv = document.querySelector(".content");
 
