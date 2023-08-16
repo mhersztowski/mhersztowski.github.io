@@ -12,3 +12,7 @@ function loadPage(pageName) {
             }
         });
 }
+
+function onPageLoad() {
+    alert("dupa11");
+}
