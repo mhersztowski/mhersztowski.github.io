@@ -1,3 +1,5 @@
-function onPageLoad() {
-    alert("dupa22");
+function callRootFunction() {
+    if (window.rootFunction) {
+        window.rootFunction();
+    }
 }

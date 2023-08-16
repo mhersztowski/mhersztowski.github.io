@@ -1,3 +1,8 @@
+// Funkcja dostępna dla innych podstron
+function rootFunction() {
+    alert("Funkcja na stronie root została wywołana!");
+}
+
 function loadPage(pageName) {
     const contentDiv = document.querySelector(".content");
 
@@ -11,8 +16,4 @@ function loadPage(pageName) {
                 onPageLoad();
             }
         });
-}
-
-function onPageLoad() {
-    alert("dupa11");
 }
