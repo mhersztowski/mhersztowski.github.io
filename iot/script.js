@@ -61,6 +61,7 @@ getLocalIP((ip) => showNotification("Twój lokalny adres IP:", ip));
 class LocalDeviceList {
     constructor(ip_adress) {
         this.ip_adress = ip_adress;
+        this.ip_prefix = substringBeforeLastDot(ip_adress);
     }
 
     init() {
@@ -70,11 +71,22 @@ class LocalDeviceList {
     shoutdown() {}
 
     start_search() {
+        alert("tototot");
         showNotification("Starting search local network");
     }
 
     on_end_search() {
         showNotification("Finishing search local network");
+    }
+
+    substringBeforeLastDot(str) {
+        const lastDotIndex = str.lastIndexOf(".");
+
+        if (lastDotIndex === -1) {
+            return str; // Zwraca cały string, jeśli nie ma kropki w łańcuchu
+        }
+
+        return str.substring(0, lastDotIndex);
     }
 }
 
