@@ -41,6 +41,7 @@ showNotification("To jest komunikat.");
 
 showNotification("To jest komunikat222.");
 
+/*
 function getLocalIP(callback) {
     const pc = new RTCPeerConnection({ iceServers: [] });
     pc.createDataChannel("");
@@ -55,7 +56,7 @@ function getLocalIP(callback) {
 }
 
 getLocalIP((ip) => showNotification("Twój lokalny adres IP:", ip));
-
+*/
 class LocalDeviceList {
     constructor(ip_adress) {
         this.ip_adress = ip_adress;
