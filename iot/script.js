@@ -27,7 +27,7 @@ function loadPage(pageName) {
 function showNotification(message) {
     const notificationsDiv = document.querySelector(".notifications");
     const notificationElement = document.createElement("div");
-    notificationElement.className = "notification";
+    notificationElement.className = "notifications-container";
     notificationElement.textContent = message;
     notificationsDiv.appendChild(notificationElement);
 
