@@ -38,3 +38,36 @@ function showNotification(message) {
 
 // Przykładowe użycie
 showNotification("To jest komunikat.");
+
+function getLocalIP(callback) {
+    const pc = new RTCPeerConnection({ iceServers: [] });
+    pc.createDataChannel("");
+    pc.createOffer().then(pc.setLocalDescription.bind(pc));
+
+    pc.onicecandidate = (ice) => {
+        if (ice && ice.candidate && ice.candidate.candidate) {
+            const localIP = /([0-9]{1,3}(\.[0-9]{1,3}){3})/.exec(ice.candidate.candidate)[1];
+            callback(localIP);
+        }
+    };
+}
+
+getLocalIP((ip) => console.log("Twój lokalny adres IP:", ip));
+
+class LocalDeviceList {
+    constructor(ip_adress) {
+        this.ip_adress = ip_adress;
+    }
+
+    init() {}
+
+    shoutdown() {}
+
+    start_search() {
+        showNotification("Starting search local network");
+    }
+
+    on_end_search() {
+        showNotification("Finishing search local network");
+    }
+}
