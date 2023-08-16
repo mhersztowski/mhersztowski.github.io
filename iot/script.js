@@ -62,21 +62,29 @@ class LocalDeviceList {
     constructor(ip_adress) {
         this.ip_adress = ip_adress;
         this.ip_prefix = substringBeforeLastDot(ip_adress);
+        this.lastSearchIp = 0;
     }
 
     init() {
         start_search();
+        for (let i = 0; i < 5; i++) {
+            search_start();
+        }
     }
 
     shoutdown() {}
 
     start_search() {
+        this.searchIsEnd = false;
         alert("tototot");
         showNotification("Starting search local network");
     }
 
     on_end_search() {
-        showNotification("Finishing search local network");
+        if (!this.searchIsEnd) {
+            showNotification("Finishing search local network");
+        }
+        this.searchIsEnd = true;
     }
 
     substringBeforeLastDot(str) {
@@ -88,7 +96,40 @@ class LocalDeviceList {
 
         return str.substring(0, lastDotIndex);
     }
+
+    search_start() {
+        if (lastSearchIp > 255) {
+            on_end_search();
+        }
+
+        showNotification("Starting search local network" + lastSearchIp);
+
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", "http://" + ip_prefix + lastSearchIp, true);
+        lastSearchIp++;
+        xhr.timeout = 5000; // Czas w milisekundach, tutaj 5 sekund
+
+        xhr.onload = function () {
+            // Zapytanie zakończone sukcesem
+            console.log(xhr.responseText);
+            search_start();
+        };
+
+        xhr.ontimeout = function () {
+            // Zapytanie przekroczyło czas
+            console.log("Request timed out");
+            search_start();
+        };
+
+        xhr.onerror = function () {
+            // Inne błędy (np. brak sieci)
+            console.log("Request failed");
+            search_start();
+        };
+
+        xhr.send();
+    }
 }
 
-const localDeviceList = new LocalDeviceList("192.168.1.42");
+let localDeviceList = new LocalDeviceList("192.168.1.42");
 localDeviceList.init();
