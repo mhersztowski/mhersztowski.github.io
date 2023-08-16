@@ -12,3 +12,18 @@
     flex-grow: 1;
     padding: 20px;
 }
+
+.notifications-container {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 300px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 10px;
+    z-index: 1000; /* Wartość z-indeksu ustala kolejność wyświetlania elementów na stronie */
+}
+
+.notification {
+    margin-bottom: 10px;
+}

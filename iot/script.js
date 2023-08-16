@@ -23,3 +23,18 @@ function loadPage(pageName) {
             }
         });
 }
+
+function showNotification(message) {
+    const notificationsDiv = document.querySelector(".notifications");
+    const notificationElement = document.createElement("div");
+    notificationElement.className = "notification";
+    notificationElement.textContent = message;
+    notificationsDiv.appendChild(notificationElement);
+
+    setTimeout(() => {
+        notificationsDiv.removeChild(notificationElement);
+    }, 5000); // Usuwa komunikat po 5 sekundach
+}
+
+// Przykładowe użycie
+showNotification("To jest komunikat.");
