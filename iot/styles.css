@@ -15,7 +15,7 @@
 
 .notifications-container {
     position: fixed;
-    bottom: 0;
+    bottom: 100px;
     right: 0;
     width: 300px;
     background-color: rgba(0, 0, 0, 0.8);
