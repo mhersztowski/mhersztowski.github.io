@@ -57,12 +57,15 @@ function getLocalIP(callback) {
 
 getLocalIP((ip) => showNotification("Twój lokalny adres IP:", ip));
 */
+
 class LocalDeviceList {
     constructor(ip_adress) {
         this.ip_adress = ip_adress;
     }
 
-    init() {}
+    init() {
+        start_search();
+    }
 
     shoutdown() {}
 
@@ -74,3 +77,6 @@ class LocalDeviceList {
         showNotification("Finishing search local network");
     }
 }
+
+const localDeviceList = new LocalDeviceList("192.168.1.42");
+localDeviceList.init();
