@@ -231,13 +231,13 @@ class WSLocalDeviceList {
         this.lastSearchIp++;
 
         // Inicjalizacja połączenia WebSocket
-        const socket = new WebSocket(`wss://${ipAddress}:${port}`);
+        const socket = new WebSocket(`ws://${ipAddress}:${port}`);
 
         showNotification("Starting search local network " + ipAddress);
         // Zdefiniowanie różnych zdarzeń dla połączenia WebSocket
 
         // Zdarzenie wywoływane, gdy połączenie zostanie otwarte
-        socket.onopen = function (event) {
+        socket.onopen = (event) => {
             ShowMessage("WebSocketOpen ");
             this.search_start_dev();
             //console.log("Połączenie WebSocket zostało otwarte:", event);
@@ -245,19 +245,19 @@ class WSLocalDeviceList {
         };
 
         // Zdarzenie wywoływane, gdy zostanie otrzymana wiadomość od serwera
-        socket.onmessage = function (event) {
+        socket.onmessage = (event) => {
             //console.log("Otrzymano wiadomość od serwera:", event.data);
         };
 
         // Zdarzenie wywoływane, gdy wystąpi błąd w połączeniu
-        socket.onerror = function (event) {
+        socket.onerror = (event) => {
             ShowMessage("WebSocketError ");
             this.search_start_dev();
             //console.log("Błąd w połączeniu WebSocket:", event);
         };
 
         // Zdarzenie wywoływane, gdy połączenie zostanie zamknięte
-        socket.onclose = function (event) {
+        socket.onclose = (event) => {
             ShowMessage("WebSocketClose ");
             //console.log("Połączenie WebSocket zostało zamknięte:", event);
         };
