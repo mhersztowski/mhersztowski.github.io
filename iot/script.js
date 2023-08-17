@@ -5,6 +5,12 @@ menuToggle.addEventListener("click", function () {
     menu.style.width = menu.style.width === "250px" || menu.style.width === "" ? "0" : "250px";
 });
 
+document.addEventListener("click", (e) => {
+    if (e.target.closest(".menu") === null) {
+        menu.style.width = "0";
+    }
+});
+
 menu.addEventListener("mouseleave", function () {
     menu.style.width = "0";
 });
