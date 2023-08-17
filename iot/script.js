@@ -125,7 +125,7 @@ class LocalDeviceList {
     }
 
     init() {
-        start_search();
+        search_start();
     }
 
     shoutdown() {}
