@@ -225,7 +225,7 @@ class WSLocalDeviceList {
         this.lastSearchIp++;
 
         // Inicjalizacja połączenia WebSocket
-        const socket = new WebSocket(`ws://${ipAddress}:${port}`);
+        const socket = new WebSocket(`wss://${ipAddress}:${port}`);
 
         showNotification("Starting search local network " + ipAddress);
         // Zdefiniowanie różnych zdarzeń dla połączenia WebSocket
