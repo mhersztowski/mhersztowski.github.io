@@ -10,12 +10,25 @@
 
 <body>
     <div class="root">
+        <!--
         <div class="sidebar">
-            <!-- Przyciski do wybierania różnych podstron -->
+            
             <button onclick="loadPage('side1')">Strona 1</button><br>
             <button onclick="loadPage('side2')">Strona 2</button>
-            <!-- Możesz dodać więcej przycisków do innych podstron -->
+            
         </div>
+        -->
+        <div id="menu" class="sidebar">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+
+        <button id="menuToggle" class="hamburger">&#9776;</button>
+
         <div class="messages">
             <!-- Tutaj będzie ładowana zawartość zmieniających się podstron -->
         </div>

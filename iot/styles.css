@@ -66,6 +66,51 @@ body {
     font-size: 1rem;
 }
 
+.sidebar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar ul li {
+    padding: 8px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.sidebar ul li a {
+    color: #818181;
+    text-decoration: none;
+    font-size: 25px;
+}
+
+.sidebar ul li a:hover {
+    color: #f1f1f1;
+}
+
+.content {
+    transition: margin-left 0.5s;
+    padding: 16px;
+}
+
+.hamburger {
+    font-size: 30px;
+    cursor: pointer;
+}
+
 @media (max-width: 1600px) {
     .device-card {
         min-width: calc(25% - 20px);
