@@ -65,7 +65,7 @@ function substringBeforeLastDot(str) {
         return str; // Zwraca cały string, jeśli nie ma kropki w łańcuchu
     }
 
-    return str.substring(0, lastDotIndex);
+    return str.substring(0, lastDotIndex + 1);
 }
 
 class LocalDeviceList {
@@ -83,36 +83,37 @@ class LocalDeviceList {
     }
 
     search_start_dev() {
-        if (lastSearchIp > 255) {
-            on_end_search();
+        if (this.lastSearchIp > 255) {
+            this.on_end_search();
+            return;
         }
 
-        showNotification("Starting search local network" + lastSearchIp);
+        this.xhr = new XMLHttpRequest();
+        let url = "http://" + this.ip_prefix + this.lastSearchIp;
+        showNotification("Starting search local network " + url);
+        this.xhr.open("GET", url, true);
+        this.lastSearchIp++;
+        this.xhr.timeout = 1000; // Czas w milisekundach, tutaj 5 sekund
 
-        var xhr = new XMLHttpRequest();
-        xhr.open("GET", "http://" + ip_prefix + lastSearchIp, true);
-        lastSearchIp++;
-        xhr.timeout = 1000; // Czas w milisekundach, tutaj 5 sekund
-
-        xhr.onload = function () {
+        this.xhr.onload = () => {
             // Zapytanie zakończone sukcesem
             console.log(xhr.responseText);
-            search_start_dev();
+            this.search_start_dev();
         };
 
-        xhr.ontimeout = function () {
+        this.xhr.ontimeout = () => {
             // Zapytanie przekroczyło czas
             console.log("Request timed out");
-            search_start_dev();
+            this.search_start_dev();
         };
 
-        xhr.onerror = function () {
+        this.xhr.onerror = () => {
             // Inne błędy (np. brak sieci)
             console.log("Request failed");
-            search_start_dev();
+            this.search_start_dev();
         };
 
-        xhr.send();
+        this.xhr.send();
     }
 
     search_start() {
@@ -120,12 +121,12 @@ class LocalDeviceList {
         showNotification("Starting search local network");
 
         for (let i = 0; i < 5; i++) {
-            search_start_dev();
+            this.search_start_dev();
         }
     }
 
     init() {
-        search_start();
+        this.search_start();
     }
 
     shoutdown() {}
