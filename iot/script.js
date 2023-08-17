@@ -85,7 +85,7 @@ class LocalDeviceList {
 
     on_end_search() {
         if (!this.searchIsEnd) {
-            showNotification("Finishing search local network");
+            //showNotification("Finishing search local network");
         }
         this.searchIsEnd = true;
     }
@@ -105,7 +105,7 @@ class LocalDeviceList {
 
         this.xhr.onload = () => {
             // Zapytanie zakończone sukcesem
-            console.log(xhr.responseText);
+            console.log(this.xhr.responseText);
             ShowMessage("XRP load " + this.xhr.responseText);
             this.search_start_dev();
         };
