@@ -36,6 +36,14 @@ function showNotification(message) {
     }, 5000); // Usuwa komunikat po 5 sekundach
 }
 
+function ShowMessage(message) {
+    const contentDiv = document.querySelector(".messages");
+    const notificationElement = document.createElement("div");
+    //notificationElement.className = "notifications-container";
+    notificationElement.textContent = message;
+    contentDiv.appendChild(notificationElement);
+}
+
 // Przykładowe użycie
 showNotification("To jest komunikat.");
 
@@ -98,18 +106,21 @@ class LocalDeviceList {
         this.xhr.onload = () => {
             // Zapytanie zakończone sukcesem
             console.log(xhr.responseText);
+            ShowMessage("XRP load " + this.xhr.responseText);
             this.search_start_dev();
         };
 
         this.xhr.ontimeout = () => {
             // Zapytanie przekroczyło czas
             console.log("Request timed out");
+            ShowMessage("XRP timeout " + this.xhr.url);
             this.search_start_dev();
         };
 
         this.xhr.onerror = () => {
             // Inne błędy (np. brak sieci)
             console.log("Request failed");
+            ShowMessage("XRP error " + this.xhr.url + " " + this.xhr.statusText);
             this.search_start_dev();
         };
 
@@ -118,6 +129,7 @@ class LocalDeviceList {
 
     search_start() {
         this.searchIsEnd = false;
+        this.lastSearchIp = 0;
         showNotification("Starting search local network");
 
         for (let i = 0; i < 5; i++) {

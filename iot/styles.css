@@ -66,9 +66,16 @@ body {
     font-size: 1rem;
 }
 
+@media (max-width: 1600px) {
+    .device-card {
+        min-width: calc(25% - 20px);
+    }
+}
+
 @media (max-width: 1024px) {
     .device-card {
-        min-width: calc(33.333% - 20px);
+        /*min-width: calc(33.333% - 20px);*/
+        min-width: calc(25% - 20px);
     }
 }
 
