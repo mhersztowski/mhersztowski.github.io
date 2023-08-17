@@ -92,7 +92,7 @@ class LocalDeviceList {
         var xhr = new XMLHttpRequest();
         xhr.open("GET", "http://" + ip_prefix + lastSearchIp, true);
         lastSearchIp++;
-        xhr.timeout = 5000; // Czas w milisekundach, tutaj 5 sekund
+        xhr.timeout = 1000; // Czas w milisekundach, tutaj 5 sekund
 
         xhr.onload = function () {
             // Zapytanie zakończone sukcesem
