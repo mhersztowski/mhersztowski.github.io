@@ -82,7 +82,7 @@ class LocalDeviceList {
         this.searchIsEnd = true;
     }
 
-    search_start() {
+    search_start_dev() {
         if (lastSearchIp > 255) {
             on_end_search();
         }
@@ -97,30 +97,30 @@ class LocalDeviceList {
         xhr.onload = function () {
             // Zapytanie zakończone sukcesem
             console.log(xhr.responseText);
-            search_start();
+            search_start_dev();
         };
 
         xhr.ontimeout = function () {
             // Zapytanie przekroczyło czas
             console.log("Request timed out");
-            search_start();
+            search_start_dev();
         };
 
         xhr.onerror = function () {
             // Inne błędy (np. brak sieci)
             console.log("Request failed");
-            search_start();
+            search_start_dev();
         };
 
         xhr.send();
     }
 
-    start_search() {
+    search_start() {
         this.searchIsEnd = false;
         showNotification("Starting search local network");
 
         for (let i = 0; i < 5; i++) {
-            search_start();
+            search_start_dev();
         }
     }
 
