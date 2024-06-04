@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dodawanie Plików</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .file-list {
+            margin-top: 20px;
+        }
+        .file-item {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Dodaj pliki do projektu</h1>
+    <input type="file" id="fileInput" multiple>
+    <div id="fileList" class="file-list"></div>
+
+    <script>
+        document.getElementById('fileInput').addEventListener('change', function(event) {
+            const fileList = document.getElementById('fileList');
+            fileList.innerHTML = ''; // Clear previous file list
+
+            const files = event.target.files;
+            for (let i = 0; i < files.length; i++) {
+                const fileItem = document.createElement('div');
+                fileItem.className = 'file-item';
+                fileItem.textContent = files[i].name;
+                fileList.appendChild(fileItem);
+            }
+        });
+    </script>
+
+</body>
+</html>
